@@ -20,6 +20,7 @@ var replace = require('gulp-replace');
 var babelify     = require('babelify');
 var html2js      = require('html2js-browserify');
 var buffer       = require('vinyl-buffer');
+var jsdoc = require("gulp-jsdoc3");
 
 var DEST = path.join(__dirname, 'dist/');
 var src = 'index';
@@ -148,6 +149,12 @@ gulp.task('wallet', ['clean'], function () {
 
 gulp.task('watch', function() {
     gulp.watch(['./lib/*.js'], ['lint', 'build']);
+});
+
+gulp.task('documentation', function(cb) {
+
+    gulp.src(['README.md', './lib/*.js'])
+        .pipe(jsdoc(cb))
 });
 
 gulp.task('default', ['version', 'lint', 'clean', 'light', 'neb', 'account', 'transaction', 'wallet']);
