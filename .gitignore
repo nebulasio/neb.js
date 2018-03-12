@@ -13,7 +13,7 @@
 */**/.DS_Store
 example/js
 node_modules
-docs
+documentation
 bower_components
 npm-debug.log
 /bower

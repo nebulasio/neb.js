@@ -29,6 +29,7 @@ var lightDst = 'neb-light';
 var accountDst = 'account';
 var transactionDst = 'transaction';
 var walletDst = 'wallet';
+var documentationDst =  path.join(__dirname, 'documentation/');
 
 // Error / Success Handling
 var onError = function(err) {
@@ -154,8 +155,12 @@ gulp.task('watch', function() {
 gulp.task('documentation', function(cb) {
 
     gulp.src(['README.md', './lib/*.js'])
-        .pipe(jsdoc(cb))
+        .pipe(jsdoc({
+            opts: {
+                destination: documentationDst
+            }
+        }, cb))
 });
 
-gulp.task('default', ['version', 'lint', 'clean', 'light', 'neb', 'account', 'transaction', 'wallet']);
+gulp.task('default', ['version', 'lint', 'clean', 'light', 'neb', 'account', 'transaction', 'wallet', 'documentation']);
 
