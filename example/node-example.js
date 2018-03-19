@@ -1,7 +1,9 @@
 "use strict";
+
  var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
  var Neb = require("../dist/neb-node");
  var neb = new Neb();
+
  neb.api.getAccountState("8a209cec02cbeab7e2f74ad969d2dfe8dd24416aa65589bf").then(function (state) {
      console.log(state);
      neb.api.sendTransaction("8a209cec02cbeab7e2f74ad969d2dfe8dd24416aa65589bf", "22ac3a9a2b1c31b7a9084e46eae16e761f83f02324092b09", neb.nasToBasic(5), parseInt(state.nonce)+1).then(function (result) {
@@ -10,16 +12,19 @@
  }).catch(function (err) {
      console.log(err);
  });
+
  neb.admin.unlockAccount("8a209cec02cbeab7e2f74ad969d2dfe8dd24416aa65589bf", "passphrase").then(function (result) {
      console.log(result);
  }).catch(function (err) {
      console.log(err);
  });
+
 neb.api.getAccountState("22ac3a9a2b1c31b7a9084e46eae16e761f83f02324092b09").then(function (state) {
     console.log(state);
 }).catch(function (err) {
     console.log(err);
 });
+
 var Account = require("../lib/account");
 var account = Account.NewAccount();
 console.log(account.getPrivateKeyString());
@@ -43,6 +48,7 @@ console.log(data);
 tx.fromProto(data);
 console.log(tx.toString());
 console.log("address:"+tx.from.getAddressString());
+
 var cryptoUtils = require("../lib/utils/crypto-utils");
 console.log("black：" + cryptoUtils.sha3("").toString("hex"));
 console.log("Hello, world：" + cryptoUtils.sha3("Hello, world").toString("hex"));
