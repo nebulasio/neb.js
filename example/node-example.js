@@ -26,7 +26,6 @@ neb.api.getAccountState("22ac3a9a2b1c31b7a9084e46eae16e761f83f02324092b09").then
 });
 
 var Account = require("../lib/account");
-
 var account = Account.NewAccount();
 console.log(account.getPrivateKeyString());
 console.log(account.getPublicKeyString());
@@ -38,9 +37,7 @@ console.log("********************");
 var a1 = new Account();
 a1 = a1.fromKey(key, "passphrase");
 console.log(a1.getPrivateKeyString());
-
 var Transaction = require("../lib/transaction");
-
 var tx = new Transaction(100, account, account, "10", 1);
 tx.signTransaction();
 console.log("hash:" + tx.hash.toString("hex"));
