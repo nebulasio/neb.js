@@ -22,7 +22,7 @@
                document.getElementById('balance').innerText = state.balance;
               document.getElementById('nonce').innerText = state.nonce;
             }).catch(function (err) {
-                console.log(err + "neb api getAccountState has some problem");
+                console.log("err:",err);
             });
         }
         function claimToken() {
