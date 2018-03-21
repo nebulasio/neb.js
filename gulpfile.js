@@ -18,12 +18,10 @@ var exorcist = require('exorcist');
 var streamify = require('gulp-streamify');
 var replace = require('gulp-replace');
 var babelify     = require('babelify');
-var html2js      = require('html2js-browserify');
 var buffer       = require('vinyl-buffer');
 var jsdoc = require("gulp-jsdoc3");
 
 var DEST = path.join(__dirname, 'dist/');
-var src = 'index';
 var dst = 'neb';
 var lightDst = 'neb-light';
 var accountDst = 'account';
@@ -80,10 +78,10 @@ gulp.task('clean', ['lint'], function(cb) {
 
 gulp.task('light', ['clean'], function () {
     return browserify(browserifyOptions)
-        .require('./' + src + '.js', {expose: 'neb'})
+        .require('./lib/neb.js', {expose: 'neb'})
         .ignore('bignumber.js')
         .require('./lib/utils/browser-bignumber.js', {expose: 'bignumber.js'}) // fake bignumber.js
-        .add('./' + src + '.js')
+        .transform(babelify)
         .bundle()
         .pipe(exorcist(path.join( DEST, lightDst + '.js.map')))
         .pipe(source(lightDst + '.js'))
@@ -95,8 +93,8 @@ gulp.task('light', ['clean'], function () {
 
 gulp.task('neb', ['clean'], function () {
     return browserify(browserifyOptions)
-        .require('./' + src + '.js', {expose: 'neb'})
-        .add('./' + src + '.js')
+        .require('./lib/neb.js', {expose: 'neb'})
+        .transform(babelify)
         .bundle()
         .pipe(exorcist(path.join( DEST, dst + '.js.map')))
         .pipe(source(dst + '.js'))
@@ -110,7 +108,6 @@ gulp.task('account', ['clean'], function () {
     return browserify()
         .require('./lib/account.js', {expose: 'account'})
         .transform(babelify)
-        .transform(html2js)
         .bundle()
         .pipe(plumber({ errorHandler: onError }))
         // .pipe(exorcist(path.join( DEST, accountDst + '.js.map')))
@@ -124,7 +121,6 @@ gulp.task('transaction', ['clean'], function () {
     return browserify()
         .require('./lib/transaction.js', {expose: 'transaction'})
         .transform(babelify)
-        .transform(html2js)
         .bundle()
         .pipe(plumber({ errorHandler: onError }))
         // .pipe(exorcist(path.join( DEST, accountDst + '.js.map')))
@@ -138,7 +134,6 @@ gulp.task('wallet', ['clean'], function () {
     return browserify()
         .require('./lib/wallet.js', {expose: 'wallet'})
         .transform(babelify)
-        .transform(html2js)
         .bundle()
         .pipe(plumber({ errorHandler: onError }))
         // .pipe(exorcist(path.join( DEST, accountDst + '.js.map')))

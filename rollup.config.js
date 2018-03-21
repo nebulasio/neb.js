@@ -1,12 +1,17 @@
+import babel from 'rollup-plugin-babel';
+import json from 'rollup-plugin-json';
 import commonjs from 'rollup-plugin-commonjs';
 import nodeResolve from 'rollup-plugin-node-resolve';
 
 export default {
   entry: './index.js',
-  dest: 'dist/neb-node.js',
+  dest: 'dist/nebulas-node.js',
   format: 'cjs',
   plugins: [
-
+    json(),
+    babel({
+      exclude: 'node_modules/**' // Just translate our source code.
+    }),
     commonjs({
         // non-CommonJS modules will be ignored, but you can also
         // specifically include/exclude files
