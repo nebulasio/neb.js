@@ -52,4 +52,5 @@ rollup -c
 ## Library
 
  * `neb.js`:Used in brower side. Including outside dependency.
+ * `neb-light.js`:Used in Repl console. Not including outside dependency.
  * `neb-node.js`: Used in node.js. Including outside dependency.

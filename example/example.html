@@ -2,16 +2,14 @@
 <html>
 
 <head>
-    <!-- <script type="text/javascript" src="../node_modules/bignumber.js/bignumber.min.js"></script> -->
-    <!--<script type="text/javascript" src="../dist/neb.js"></script>-->
-    <!--<script type="text/javascript" src="../dist/account.js"></script>-->
-    <script type="text/javascript" src="../dist/wallet.js"></script>
+    <script type="text/javascript" src="../dist/nebulas.js"></script>
     <script type="text/javascript">
-        var Neb = require("wallet").Neb;
-        var Account = require("wallet").Account;
-        var Transaction = require("wallet").Transaction;
+        var HttpRequest = require("nebulas").HttpRequest;
+        var Neb = require("nebulas").Neb;
+        var Account = require("nebulas").Account;
+        var Transaction = require("nebulas").Transaction;
         var neb = new Neb();
-        neb.setRequest(new Neb.HttpRequest("https://testnet.nebulas.io"));
+        neb.setRequest(new HttpRequest("https://testnet.nebulas.io"));
         var account, tx, txhash;
         function createExampleAccount() {
             account = Account.NewAccount();

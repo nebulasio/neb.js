@@ -24,9 +24,10 @@ var jsdoc = require("gulp-jsdoc3");
 var DEST = path.join(__dirname, 'dist/');
 var dst = 'neb';
 var lightDst = 'neb-light';
+var requestDst = 'request';
 var accountDst = 'account';
 var transactionDst = 'transaction';
-var walletDst = 'wallet';
+var nebulasDst = 'nebulas';
 var documentationDst =  path.join(__dirname, 'documentation/');
 
 // Error / Success Handling
@@ -104,6 +105,19 @@ gulp.task('neb', ['clean'], function () {
         .pipe(gulp.dest( DEST ));
 });
 
+gulp.task('request', ['clean'], function () {
+    return browserify()
+        .require('./lib/httprequest.js', {expose: 'httprequest'})
+        .transform(babelify)
+        .bundle()
+        .pipe(plumber({ errorHandler: onError }))
+        // .pipe(exorcist(path.join( DEST, requestDst + '.js.map')))
+        .pipe(source('account.js'))
+        .pipe(buffer())
+        .pipe(rename(requestDst + '.js'))
+        .pipe(gulp.dest(DEST));
+});
+
 gulp.task('account', ['clean'], function () {
     return browserify()
         .require('./lib/account.js', {expose: 'account'})
@@ -123,23 +137,23 @@ gulp.task('transaction', ['clean'], function () {
         .transform(babelify)
         .bundle()
         .pipe(plumber({ errorHandler: onError }))
-        // .pipe(exorcist(path.join( DEST, accountDst + '.js.map')))
+        // .pipe(exorcist(path.join( DEST, transactionDst + '.js.map')))
         .pipe(source('transaction.js'))
         .pipe(buffer())
         .pipe(rename(transactionDst + '.js'))
         .pipe(gulp.dest(DEST));
 });
 
-gulp.task('wallet', ['clean'], function () {
+gulp.task('nebulas', ['clean'], function () {
     return browserify()
-        .require('./lib/wallet.js', {expose: 'wallet'})
+        .require('./index.js', {expose: 'nebulas'})
         .transform(babelify)
         .bundle()
         .pipe(plumber({ errorHandler: onError }))
-        // .pipe(exorcist(path.join( DEST, accountDst + '.js.map')))
-        .pipe(source('wallet.js'))
+        // .pipe(exorcist(path.join( DEST, nebulasDst + '.js.map')))
+        .pipe(source('nebulas.js'))
         .pipe(buffer())
-        .pipe(rename(walletDst + '.js'))
+        .pipe(rename(nebulasDst + '.js'))
         .pipe(gulp.dest(DEST));
 });
 
@@ -157,5 +171,5 @@ gulp.task('documentation', function(cb) {
         }, cb))
 });
 
-gulp.task('default', ['version', 'lint', 'clean', 'light', 'neb', 'account', 'transaction', 'wallet', 'documentation']);
+gulp.task('default', ['version', 'lint', 'clean', 'light', 'neb', 'request', 'account', 'transaction', 'nebulas', 'documentation']);
 

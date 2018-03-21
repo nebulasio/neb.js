@@ -1,3 +1,4 @@
+var HttpRequest = require("./lib/httprequest");
 var Neb = require('./lib/neb');
 var Account = require('./lib/account');
 var Transaction = require('./lib/transaction');
@@ -11,6 +12,7 @@ if (typeof window !== 'undefined' && typeof window.Neb === 'undefined') {
 }
 
 module.exports = {
+	HttpRequest: HttpRequest,
     Neb: Neb,
     Account: Account,
     Transaction: Transaction,

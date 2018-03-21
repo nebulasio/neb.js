@@ -1,7 +1,10 @@
 "use strict";
 
- var Neb = require("../lib/neb");
+var Nebulas = require("../index");
+
+ var Neb = Nebulas.Neb;
  var neb = new Neb();
+ neb.setRequest(new Nebulas.HttpRequest("https://testnet.nebulas.io"));
 
  neb.api.getAccountState("n1PfySvoUyNfWg6xKDohK96TCWbSxQXLdwB").then(function (state) {
      console.log(state);
@@ -9,9 +12,7 @@
      console.log(err);
  });
 
- return;
-
-var Account = require("../lib/account");
+var Account = Nebulas.Account;
 var account = Account.NewAccount();
 console.log(account.getPrivateKeyString());
 console.log(account.getPublicKeyString());
@@ -23,7 +24,8 @@ console.log("********************");
 var a1 = new Account();
 a1 = a1.fromKey(key, "passphrase");
 console.log(a1.getPrivateKeyString());
-var Transaction = require("../lib/transaction");
+
+var Transaction = Nebulas.Transaction;
 var tx = new Transaction(100, account, account, "10", 1);
 tx.signTransaction();
 console.log("hash:" + tx.hash.toString("hex"));
@@ -35,6 +37,6 @@ tx.fromProto(data);
 console.log(tx.toString());
 console.log("address:"+tx.from.getAddressString());
 
-var cryptoUtils = require("../lib/utils/crypto-utils");
+var cryptoUtils = Nebulas.CryptoUtils;
 console.log("black：" + cryptoUtils.sha3("").toString("hex"));
 console.log("Hello, world：" + cryptoUtils.sha3("Hello, world").toString("hex"));

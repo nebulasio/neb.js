@@ -1,6 +1,6 @@
 {
   "name": "nebulas",
-  "version": "0.3.0",
+  "version": "0.3.2",
   "description": "Nebulas JavaScript API",
   "main": "index.js",
   "repository": {
@@ -15,7 +15,10 @@
   },
   "author": "nebulas",
   "license": "LGPL-3.0",
-  "bugs":{"url":"https://github.com/nebulasio/neb.js/issues","email":"larry@nebulas.io"},
+  "bugs": {
+    "url": "https://github.com/nebulasio/neb.js/issues",
+    "email": "larry@nebulas.io"
+  },
   "keywords": [
     "neb",
     "javascript",
