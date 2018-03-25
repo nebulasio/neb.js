@@ -45,7 +45,7 @@
     "keccak": "^1.0.2"
   },
   "devDependencies": {
-    "assert": "^1.4.1",
+    "assert": "*",
     "babel-plugin-transform-es3-member-expression-literals": "6.22.0",
     "babel-plugin-transform-es3-property-literals": "6.22.0",
     "babel-plugin-transform-object-rest-spread": "6.23.0",
