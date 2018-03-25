@@ -31,7 +31,7 @@
     "xmlhttprequest": "./lib/utils/browser-xhr.js"
   },
   "dependencies": {
-    "bignumber.js": "^6.0.0",
+    "bignumber.js": "^5.0.0",
     "xmlhttprequest": "^1.8.0",
     "promise": "^8.0.1",
     "protobufjs": "^6.8.6",
