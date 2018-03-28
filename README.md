@@ -38,6 +38,9 @@ Now we can check the newly created files in `/dist`
 
 Here you should see a bunch of js files. 
 
+## Documentation
+For build API documentation run `gulp documentation` task
+Generated documentation you can check in `/documentation` folder.
 
 ## Extra 
 Rollup is a module bundler for JavaScript which compiles small pieces of code into something larger and more complex, such as a library or application.
