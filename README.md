@@ -1,34 +1,16 @@
 # Nebulas JavaScript API
 
+[![NPM](https://nodei.co/npm/nebulas.png)](https://nodei.co/npm/nebulas/)
+
 This readme will get you started with using the `neb.js` file.
 This file can be found in [neb.js](https://github.com/nebulasio/neb.js).
 
-This is the Nebulas compatible JavaScript API. Users can use it in brower and node.js.This javascript library also support API for our Repl console. 
+This is the Nebulas compatible JavaScript API. Users can use it in brower and node.js. This javascript library also support API for our Repl console. Users can sign/send transactions and deploy/call smart contract with it. 
 
 
-## Step 1: We need to use NPM to install the dependencies before using neb.js:
+## Browser
 
-Download Node.js:
-
-Note: npm is a Node.js package manager. So this means you need to install Node.js in order to use `npm install` [Node.js](https://nodejs.org/en/)
-
-Once you have Node.js installed we can go to the neb.js folder.
-
-Example 1: in the terminal
-
-```
-cd neb.js
-npm install
-```
-
-
-## Step 2: We need to use the `gulp` command
-
-Package neb.js:
-
-Note: In order to use the `gulp` command we need to install [gulp](https://gulpjs.com/):
-
-Example 2 in the terminal:
+use `gulp` to package the neb.js:
 
 ```
 gulp
@@ -57,4 +39,4 @@ rollup -c
 
  * `neb.js`:Used in brower side. Including outside dependency.
  * `neb-light.js`:Used in Repl console. Not including outside dependency.
- * `neb-node.js`: Used in node.js. Including outside dependency.
+ * `nebulas.js`: Fully functional in the browser. Users can create an address, sign a transaction, and deploy/call a smart contract.
