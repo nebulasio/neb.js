@@ -1,6 +1,6 @@
 {
     "name": "nebulas",
-    "version": "0.4.2",
+    "version": "0.4.4",
     "description": "Nebulas JavaScript API",
     "main": "index.js",
     "repository": {
@@ -40,7 +40,8 @@
         "safe-buffer": "^5.1.1",
         "scryptsy": "^2.0.0",
         "secp256k1": "*",
-        "uuid": "^3.0.1"
+        "uuid": "^3.0.1",
+        "htmlescape": "^1.1.1"
     },
     "devDependencies": {
         "assert": "*",
