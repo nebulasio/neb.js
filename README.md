@@ -39,7 +39,8 @@ Now we can check the newly created files in `/dist`
 Here you should see a bunch of js files. 
 
 ## Documentation
-For build API documentation run `gulp documentation` task
+For build API documentation run `gulp documentation` task.
+
 Generated documentation you can check in `/documentation` folder.
 
 ## Extra 
