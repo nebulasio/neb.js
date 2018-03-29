@@ -163,7 +163,7 @@ gulp.task('watch', function() {
 
 gulp.task('documentation', function(cb) {
 
-    gulp.src(['README.md', './lib/*.js', './lib/**/*.js'])
+    gulp.src(['README.md', './lib/*.js'])
         .pipe(jsdoc({
             opts: {
                 destination: documentationDst
