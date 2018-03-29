@@ -1,6 +1,6 @@
 {
     "name": "nebulas",
-    "version": "0.4.3",
+    "version": "0.4.2",
     "description": "Nebulas JavaScript API",
     "main": "index.js",
     "repository": {
