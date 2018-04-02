@@ -20,6 +20,7 @@ var replace = require('gulp-replace');
 var babelify     = require('babelify');
 var buffer       = require('vinyl-buffer');
 var jsdoc = require("gulp-jsdoc3");
+var pkg = require("./package.json");
 
 var DEST = path.join(__dirname, 'dist/');
 var dst = 'neb';
@@ -166,7 +167,16 @@ gulp.task('documentation', function(cb) {
     gulp.src(['README.md', './lib/*.js', './lib/**/*.js'])
         .pipe(jsdoc({
             opts: {
-                destination: documentationDst
+                destination: documentationDst,
+                "template": "./docs-data/template"
+            },
+            templates: {
+                "systemName"            : pkg.description,
+                "logoFile"              : "img/logo.png",
+                "copyright"             :  pkg.copyright,
+                "theme"                 : "lumen",
+                "linenums"              : true,
+                "sort"				    : false,
             }
         }, cb))
 });
