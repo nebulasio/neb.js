@@ -26,7 +26,7 @@
         function claimToken() {
             var email = Math.random() + "test@demo.io";
             var url = "https://testnet.nebulas.io/claim/api/claim/"+ email+ "/"+ account.getAddressString() +"/";
-            var request = new Neb.HttpRequest(url);
+            var request = new HttpRequest(url);
             request.request("GET", "", "").then(function (resp) {
                 console.log(resp);
             }).catch(function (err) {
