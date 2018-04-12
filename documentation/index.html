@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Nebulas JavaScript API Index</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+	<link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.lumen.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top ">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html"><img class="branding-logo" src="img/logo.png"
+		alt="logo"/>Nebulas JavaScript API</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="Account.html">Account</a></li><li><a href="Admin.html">Admin</a></li><li><a href="API.html">API</a></li><li><a href="Neb.html">Neb</a></li><li><a href="Transaction.html">Transaction</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html">Global</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-8">
+	
+		<div id="main">
+			
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+    <section class="readme-section">
+        <article><h1>Nebulas JavaScript API</h1><p><a href="https://nodei.co/npm/nebulas/"><img src="https://nodei.co/npm/nebulas.png" alt="NPM"></a></p>
+<p>This is the Nebulas compatible JavaScript API. Users can use it in brower and node.js. This javascript library also support API for our Repl console. Users can sign/send transactions and deploy/call smart contract with it. <a href="https://github.com/nebulasio/neb.js">neb.js</a></p>
+<h2>Install &amp;&amp; Package</h2><p>Use the <code>npm</code> installation dependencies</p>
+<pre class="prettyprint source"><code>npm install</code></pre><p>Use <code>gulp</code> to package the neb.js:</p>
+<pre class="prettyprint source"><code>gulp</code></pre><p>Now we can check the newly created files in <code>/dist</code></p>
+<p>Here you should see a bunch of js files. </p>
+<ul>
+<li><code>neb.js</code>:Used in brower side. Including outside dependency.</li>
+<li><code>neb-light.js</code>:Used in Repl console. Not including outside dependency.</li>
+<li><code>nebulas.js</code>: Fully functional in the browser. Users can create an address, sign a transaction, and deploy/call a smart contract.</li>
+</ul>
+<h2>Documentation</h2><p>For build API documentation run <code>gulp documentation</code> task.</p>
+<p>Generated documentation you can check in <code>/documentation</code> folder.</p>
+<h2>Usage</h2><p><code>neb.js</code> is a useful library for nebulas developers. It provides rich underlying support in web and node.js's dapp. It implements the following functions.</p>
+<ul>
+<li>The RPC interface for the nebulas node is encapsulated;</li>
+<li>Create and manage the private key and address of the nebulas;</li>
+<li>Generate the transaction object and sign the transaction.</li>
+</ul>
+<p>The use of neb.js can be used as examples:</p>
+<ul>
+<li><a href="example/example.html">web-example</a> </li>
+<li><a href="example/node-example.js">nodejs-example</a></li>
+</ul>
+<h2>Extra</h2><p>Rollup is a module bundler for JavaScript which compiles small pieces of code into something larger and more complex, such as a library or application.</p>
+<p>Next step go to the neb.js folder in your Nebulas dir and
+Build neb-node.js by using <a href="https://rollupjs.org/">rollup</a>:</p>
+<pre class="prettyprint source"><code>rollup -c</code></pre></article>
+    </section>
+
+
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+
+	<span class="copyright">
+	Copyright © 2017-2018 Nebulas.io
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
+	
+		on 2018-04-12T14:50:22+08:00
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>
