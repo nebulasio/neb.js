@@ -29,7 +29,7 @@ var requestDst = 'request';
 var accountDst = 'account';
 var transactionDst = 'transaction';
 var nebulasDst = 'nebulas';
-var documentationDst =  path.join(__dirname, 'documentation/');
+var documentationDst =  path.join(__dirname, 'docs/');
 
 // Error / Success Handling
 var onError = function(err) {
