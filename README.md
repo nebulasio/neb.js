@@ -28,6 +28,10 @@ Here you should see a bunch of js files.
  * `nebulas.js`: Fully functional in the browser. Users can create an address, sign a transaction, and deploy/call a smart contract.
 
 ## Documentation
+
+
+<a target="_blank" href="https://nebulasio.github.io/neb.js/index.html">Public API documentation link</a>
+
 For build API documentation run `gulp documentation` task.
 
 Generated documentation you can check in `/documentation` folder.
