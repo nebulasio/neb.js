@@ -62,7 +62,13 @@
         function generateTransaction() {
             neb.api.getAccountState(account.getAddressString()).then(function (state) {
                 var testnetchainID = 1001;
-                tx = new Transaction(testnetchainID, account, account, Unit.nasToBasic(1), parseInt(state.result.nonce) + 1);
+                var lastnonce;
+                if (state.result){
+                    lastnonce = parseInt(state.result.nonce);
+                } else {
+                    lastnonce = parseInt(state.nonce);
+                }
+                tx = new Transaction(testnetchainID, account, account, Unit.nasToBasic(1), lastnonce + 1);
                 tx.signTransaction();
                 document.getElementById('transaction').value = tx.toString();
                 document.getElementById('rawdata').value = tx.toProtoString();
