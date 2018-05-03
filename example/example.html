@@ -8,6 +8,7 @@
         var Neb = require("nebulas").Neb;
         var Account = require("nebulas").Account;
         var Transaction = require("nebulas").Transaction;
+        var Unit = require("nebulas").Unit;
         var neb = new Neb();
         neb.setRequest(new HttpRequest("https://testnet.nebulas.io"));
         var account, tx, txhash;
@@ -26,7 +27,8 @@
         function claimToken() {
             var email = Math.random() + "test@demo.io";
             var url = "https://testnet.nebulas.io/claim/api/claim/"+ email+ "/"+ account.getAddressString() +"/";
-            var request = new Neb.HttpRequest(url);
+            console.log("jcjc, ", url);
+            var request = new HttpRequest(url);
             request.request("GET", "", "").then(function (resp) {
                 console.log(resp);
             }).catch(function (err) {
@@ -61,7 +63,7 @@
         function generateTransaction() {
             neb.api.getAccountState(account.getAddressString()).then(function (state) {
                 var testnetchainID = 1001;
-                tx = new Transaction(testnetchainID, account, account, neb.nasToBasic("1"), parseInt(state.nonce) + 1);
+                tx = new Transaction(testnetchainID, account, account, Unit.nasToBasic(1), parseInt(state.result.nonce) + 1);
                 tx.signTransaction();
                 document.getElementById('transaction').value = tx.toString();
                 document.getElementById('rawdata').value = tx.toProtoString();
@@ -71,7 +73,7 @@
         }
         function submitTransaction() {
             neb.api.sendRawTransaction(tx.toProtoString()).then(function (resp) {
-                txhash = resp.txhash;
+                txhash = resp.result.txhash;
                 document.getElementById('receipt').value = txhash;
             }).catch(function (err) {
                 console.log(err);
