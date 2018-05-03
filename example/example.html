@@ -18,6 +18,7 @@
             document.getElementById('public').innerText = account.getPublicKeyString();
             document.getElementById('address').innerText = account.getAddressString();
           neb.api.getAccountState(account.getAddressString()).then(function (state) {
+              state = state.result || state;
                document.getElementById('balance').innerText = state.balance;
               document.getElementById('nonce').innerText = state.nonce;
             }).catch(function (err) {
@@ -35,6 +36,7 @@
             });
             setTimeout(function () {
                 neb.api.getAccountState(account.getAddressString()).then(function (state) {
+                    state = state.result || state;
                     document.getElementById('balance').innerText = state.balance;
                     document.getElementById('nonce').innerText = state.nonce;
                 }).catch(function (err) {
@@ -61,14 +63,9 @@
         }
         function generateTransaction() {
             neb.api.getAccountState(account.getAddressString()).then(function (state) {
+                state = state.result || state;
                 var testnetchainID = 1001;
-                var lastnonce;
-                if (state.result){
-                    lastnonce = parseInt(state.result.nonce);
-                } else {
-                    lastnonce = parseInt(state.nonce);
-                }
-                tx = new Transaction(testnetchainID, account, account, Unit.nasToBasic(1), lastnonce + 1);
+                tx = new Transaction(testnetchainID, account, account, Unit.nasToBasic(1), parseInt(state.nonce) + 1);
                 tx.signTransaction();
                 document.getElementById('transaction').value = tx.toString();
                 document.getElementById('rawdata').value = tx.toProtoString();
@@ -78,7 +75,8 @@
         }
         function submitTransaction() {
             neb.api.sendRawTransaction(tx.toProtoString()).then(function (resp) {
-                txhash = resp.result.txhash;
+                resp = resp.result || resp;
+                txhash = resp.txhash;
                 document.getElementById('receipt').value = txhash;
             }).catch(function (err) {
                 console.log(err);
