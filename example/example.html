@@ -27,7 +27,6 @@
         function claimToken() {
             var email = Math.random() + "test@demo.io";
             var url = "https://testnet.nebulas.io/claim/api/claim/"+ email+ "/"+ account.getAddressString() +"/";
-            console.log("jcjc, ", url);
             var request = new HttpRequest(url);
             request.request("GET", "", "").then(function (resp) {
                 console.log(resp);
@@ -95,10 +94,11 @@
 </head>
 <body>
 <h1>Demo</h1>
+<h3>This is a simple demo for how to use nebulas api in your source code</h3>
 <div>
     <button type="button" onClick="createExampleAccount();">new account</button>
 </div>
-<div>Account Info</div>
+<div>1. Click [new Account] button to get your Account Info</div>
 
 <div>private key:<label id="private"></label></div>
 <div>public key:<label id="public"></label></div>
@@ -109,18 +109,32 @@
             nonce:<label id="nonce">0</label>
         </span>
 </div>
+<br>
+<br>
+
 <div>
+    <div>2. Click [claim tokens] button to request for testnet tokens (limited times per day, check your account later)</div>
     <button type="button" onClick="claimToken();">claim tokens</button>
 </div>
+<br>
+<br>
+
 <div style="display: inline-block">
+    <div>3. Click [generatekey] button to get local keyfiles</div>
+
     <input type="password" id="passphrase" placeholder="passphrase"/>
     <button type="button" onClick="generatekey();">generatekey</button>
     <button type="button" onClick="fromkey();">fromkey</button>
 </div>
 <div>key file:</div>
 <textarea id="key" readonly></textarea>
+<br>
+<br>
+<br>
+
 
 <div>
+    <div>4. Click [new transaction] to generate local signed transactions</div>
     <button type="button" onClick="generateTransaction();">new transaction</button>
 </div>
 <div style="display: inline-block">
@@ -129,7 +143,13 @@
     <div>transaction raw data:</div>
     <textarea id="rawdata" readonly></textarea>
 </div>
+<br>
+<br>
+<br>
+
+
 <div>
+    <div>5. Click [submit transaction] to send transaction to server and check transaction hash</div>
     <button type="button" onClick="submitTransaction();">submit transaction</button>
     <button type="button" onClick="receiptTransaction();">receipt transaction</button>
 </div>
