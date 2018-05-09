@@ -88,6 +88,13 @@
                 document.getElementById('receipt').value = JSON.stringify(resp);
             });
         }
+        function getTransactionByContract() {
+            neb.api.getTransactionByContract("n1sqDHGjYtX6rMqFoq5Tow3s3LqF4ZxBvE3").then(function(resp) {
+                document.getElementById('contract').value = JSON.stringify(resp);
+            }).catch(function(err){
+                document.getElementById('contract').value = JSON.stringify(err);
+            });
+        }
     </script>
     <style>
         textarea {
@@ -161,5 +168,15 @@
     <div>transaction receipt:</div>
     <textarea readonly id="receipt"></textarea>
 </div>
+
+<div>
+    <div>6. Click [check transaction] to get transaction of contract "n1sqDHGjYtX6rMqFoq5Tow3s3LqF4ZxBvE3"</div>
+    <button type="button" onClick="getTransactionByContract();">check transaction</button>
+</div>
+<div>
+    <div>transaction receipt:</div>
+    <textarea readonly id="contract"></textarea>
+</div>
+
 </body>
 </html>
