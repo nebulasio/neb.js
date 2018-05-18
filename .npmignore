@@ -7,3 +7,6 @@ test
 .npmignore
 component.json
 testling.html
+docs
+docs-data
+documentation
