@@ -1,5 +1,7 @@
 # Nebulas JavaScript API
 
+[![](https://data.jsdelivr.com/v1/package/npm/nebulas/badge)](https://www.jsdelivr.com/package/npm/nebulas)
+
 [![NPM](https://nodei.co/npm/nebulas.png)](https://nodei.co/npm/nebulas/)
 
 This is the Nebulas compatible JavaScript API. Users can use it in browser and node.js. This javascript library also support API for our Repl console. Users can sign/send transactions and deploy/call smart contract with it. [neb.js](https://github.com/nebulasio/neb.js)
