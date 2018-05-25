@@ -26,7 +26,7 @@ a1 = a1.fromKey(key, "passphrase");
 console.log(a1.getPrivateKeyString());
 
 var Transaction = Nebulas.Transaction;
-var tx = new Transaction(100, account, account, "10", 1);
+var tx = new Transaction(1001, account, account, "10", 1);
 tx.signTransaction();
 console.log("hash:" + tx.hash.toString("hex"));
 console.log("sign:" + tx.sign.toString("hex"));

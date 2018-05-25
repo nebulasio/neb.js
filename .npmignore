@@ -7,3 +7,4 @@ test
 .npmignore
 component.json
 testling.html
+lib/nvm/.storage

@@ -9,6 +9,7 @@
         var Account = require("nebulas").Account;
         var Transaction = require("nebulas").Transaction;
         var Unit = require("nebulas").Unit;
+        var NVM = require("nebulas").NVM;
         var neb = new Neb();
         neb.setRequest(new HttpRequest("https://testnet.nebulas.io"));
         var account, tx, txhash;
@@ -88,6 +89,46 @@
                 document.getElementById('receipt').value = JSON.stringify(resp);
             });
         }
+
+         var block = {
+            timestamp: 0,
+            height: 1
+        };
+
+        var transaction = {
+            hash: "2933836c3a56ddd789464c7bd3fd92bdb1c974ac62f7b38a34bc48eb33679f52",
+            from: "n1dAmstUGQ3YB4EVokmRdrvvVCNfJVU5WuS",
+            to: "n1dAmstUGQ3YB4EVokmRdrvvVCNfJVU5WuS",
+            value: "10",
+            nonce: 1,
+            timestamp: 1527077193,
+            gasPrice: "1000000",
+            gasLimit: "20000"
+        };
+
+        function deploy() {
+            var source = document.getElementById('contract').value;
+            var nvm = new NVM(block, transaction);
+            var args = document.getElementById('deploy-args').value;
+            try {
+                var result = nvm.deploy(source, args);
+                document.getElementById('contract-result').value = result;
+            } catch (e) {
+                document.getElementById('contract-result').value = e;
+            }
+        }
+        function call() {
+            var source = document.getElementById('contract').value;
+            var nvm = new NVM(block, transaction);
+            var func = document.getElementById('call-func').value;
+            var args = document.getElementById('call-args').value;
+            try {
+                var result = nvm.call(source, func, args);
+                document.getElementById('contract-result').value = result;
+            } catch (e) {
+                document.getElementById('contract-result').value = e;
+            }
+        }
     </script>
     <style>
         textarea {
@@ -160,6 +201,34 @@
 <div>
     <div>transaction receipt:</div>
     <textarea readonly id="receipt"></textarea>
+</div>
+
+<br>
+<br>
+<br>
+
+<div>
+    <div>6. Click [deploy/call contract] to mock deploy/call javascript contract</div>
+    <div style="display: inline-block">
+        <div>args:</div>
+        <input type="text" id="deploy-args" placeholder="args:[]"/>
+        <button type="button" onClick="deploy();">deploy contract</button>
+    </div>
+    <div style="display: inline-block">
+        <div>func:</div>
+        <input type="text" id="call-func" placeholder="function"/>
+        <div>args:</div>
+        <input type="text" id="call-args" placeholder="args:[]"/>
+        <button type="button" onClick="call();">call contract</button>
+    </div>
+</div>
+<div>
+    <div>contract code:</div>
+    <textarea id="contract"></textarea>
+</div>
+<div>
+    <div>result:</div>
+    <textarea id="contract-result"></textarea>
 </div>
 </body>
 </html>
