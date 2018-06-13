@@ -29,6 +29,7 @@ var requestDst = 'request';
 var accountDst = 'account';
 var transactionDst = 'transaction';
 var nebulasDst = 'nebulas';
+var nvmDst = 'nvm';
 var documentationDst =  path.join(__dirname, 'docs/');
 
 // Error / Success Handling
@@ -69,7 +70,7 @@ gulp.task('version', function(){
 });
 
 gulp.task('lint', [], function(){
-    return gulp.src(['./index.js', './lib/*.js', './lib/**/*.js'])
+    return gulp.src(['./index.js', './lib/*.js', './lib/**/*.js','!./lib/nvm/**/*.js'])
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
@@ -145,9 +146,26 @@ gulp.task('transaction', ['clean'], function () {
         .pipe(gulp.dest(DEST));
 });
 
+gulp.task('nvm', ['clean'], function () {
+    return browserify()
+        .require('./lib/nvm/nvm.js', {expose: 'nvm'})
+        .ignore('node-localstorage.js')
+        .require('./lib/nvm/native/browser-localstorage.js', {expose: 'node-localstorage.js'}) // fake node-localstorage.js
+        .transform(babelify)
+        .bundle()
+        .pipe(plumber({ errorHandler: onError }))
+        // .pipe(exorcist(path.join( DEST, nvmDst + '.js.map')))
+        .pipe(source('nvm.js'))
+        .pipe(buffer())
+        .pipe(rename(nvmDst + '.js'))
+        .pipe(gulp.dest(DEST));
+});
+
 gulp.task('nebulas', ['clean'], function () {
     return browserify()
         .require('./index.js', {expose: 'nebulas'})
+        .ignore('node-localstorage.js')
+        .require('./lib/nvm/native/browser-localstorage.js', {expose: 'node-localstorage.js'}) // fake node-localstorage.js
         .transform(babelify)
         .bundle()
         .pipe(plumber({ errorHandler: onError }))
@@ -181,5 +199,5 @@ gulp.task('documentation', function(cb) {
         }, cb))
 });
 
-gulp.task('default', ['version', 'lint', 'clean', 'light', 'neb', 'request', 'account', 'transaction', 'nebulas', 'documentation']);
+gulp.task('default', ['version', 'lint', 'clean', 'light', 'neb', 'request', 'account', 'transaction', 'nebulas', 'nvm', 'documentation']);
 

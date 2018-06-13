@@ -21,3 +21,4 @@ npm-debug.log
 packages/
 dist/
 .idea/
+lib/nvm/.storage
