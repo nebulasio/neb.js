@@ -29,6 +29,13 @@ Here you should see a bunch of js files.
  * `neb-light.js`:Used in Repl console. Not including outside dependency.
  * `nebulas.js`: Fully functional in the browser. Users can create an address, sign a transaction, and deploy/call a smart contract.
 
+###### CDN Support
+neb.js has been released to [NPM](https://www.npmjs.com/package/nebulas), and developers can use the following code through [CDN](https://www.jsdelivr.com/package/npm/nebulas) addition.
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/nebulas@0.5.1/dist/nebulas.js"></script>
+```
+
 ## Documentation
 
 
@@ -44,20 +51,27 @@ Generated documentation you can check in `/documentation` folder.
 * The RPC interface for the nebulas node is encapsulated;
 * Create and manage the private key and address of the nebulas;
 * Generate the transaction object and sign the transaction.
+* Deploy/call smart contract, breakpoint debugging support.
 
 The use of neb.js can be used as examples:
 
 * [web-example](example/example.html) 
 * [nodejs-example](example/node-example.js)
+* [node-nvm](example/node-nvm.js)
 
-## Extra 
-Rollup is a module bundler for JavaScript which compiles small pieces of code into something larger and more complex, such as a library or application.
+## Contribution
 
-Next step go to the neb.js folder in your Nebulas dir and
-Build neb-node.js by using [rollup](https://rollupjs.org/):
+We are very glad that you are considering to help Nebulas Team or go-nebulas project, including but not limited to source code, documents or others.
 
-```
-rollup -c
-```
+If you'd like to contribute, please fork, fix, commit and send a pull request for the maintainers to review and merge into the main code base. If you wish to submit more complex changes though, please check up with the core devs first on our [slack channel](http://nebulasio.herokuapp.com) to ensure those changes are in line with the general philosophy of the project and/or get some early feedback which can make both your efforts much lighter as well as our review and merge procedures quick and simple.
 
+Please refer to our [contribution guideline](https://github.com/nebulasio/wiki/blob/master/contribute.md) for more information.
+
+Thanks.
+
+## License
+
+The go-nebulas project is licensed under the [GNU Lesser General Public License Version 3.0 (“LGPL v3”)](https://www.gnu.org/licenses/lgpl-3.0.en.html).
+
+For the more information about licensing, please refer to [Licensing](https://github.com/nebulasio/wiki/blob/master/licensing.md) page.
 

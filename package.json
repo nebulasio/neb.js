@@ -1,6 +1,6 @@
 {
     "name": "nebulas",
-    "version": "0.5.0",
+    "version": "0.5.1",
     "copyright": "Copyright © 2017-2018 Nebulas.io",
     "description": "Nebulas JavaScript API",
     "main": "index.js",
