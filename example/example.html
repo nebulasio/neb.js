@@ -138,6 +138,9 @@
                 if (result === undefined) {
                     result = "call success!"
                 }
+                if (typeof result === "object") {
+                    result = JSON.stringify(result);
+                }
                 document.getElementById('contract-result').value = result;
             } catch (e) {
                 document.getElementById('contract-result').value = e;
