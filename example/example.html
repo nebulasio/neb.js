@@ -84,9 +84,11 @@
             })
         }
         function receiptTransaction() {
-            neb.api.getTransactionReceipt(txhash, function (err, resp) {
+            neb.api.getTransactionReceipt(txhash).then(function (resp) {
                 console.log(resp);
                 document.getElementById('receipt').value = JSON.stringify(resp);
+            }).catch(function(err){
+                document.getElementById('receipt').value = JSON.stringify(err);
             });
         }
 
