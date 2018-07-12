@@ -33,7 +33,7 @@ Here you should see a bunch of js files.
 neb.js has been released to [NPM](https://www.npmjs.com/package/nebulas), and developers can use the following code through [CDN](https://www.jsdelivr.com/package/npm/nebulas) addition.
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/nebulas@0.5.4/dist/nebulas.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/nebulas@0.5.5/dist/nebulas.js"></script>
 ```
 
 ## Documentation
