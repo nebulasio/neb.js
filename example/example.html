@@ -26,25 +26,6 @@
                 console.log("err:",err);
             });
         }
-        function claimToken() {
-            var email = Math.random() + "test@demo.io";
-            var url = "https://testnet.nebulas.io/claim/api/claim/"+ email+ "/"+ account.getAddressString() +"/";
-            var request = new HttpRequest(url);
-            request.request("GET", "", "").then(function (resp) {
-                console.log(resp);
-            }).catch(function (err) {
-                console.log(err);
-            });
-            setTimeout(function () {
-                neb.api.getAccountState(account.getAddressString()).then(function (state) {
-                    state = state.result || state;
-                    document.getElementById('balance').innerText = state.balance;
-                    document.getElementById('nonce').innerText = state.nonce;
-                }).catch(function (err) {
-                    console.log(err);
-                })
-            }, 10000);
-        }
         function generatekey() {
             var passphrase = document.getElementById("passphrase").value;
             if (passphrase.length == 0) {
@@ -158,7 +139,7 @@
 </head>
 <body>
 <h1>Demo</h1>
-<h3>This is a simple demo for how to use nebulas api in your source code</h3>
+<h3>Simple demo for how to use Nebulas API</h3>
 <div>
     <button type="button" onClick="createExampleAccount();">new account</button>
 </div>
@@ -177,8 +158,8 @@
 <br>
 
 <div>
-    <div>2. Click [claim tokens] button to request for testnet tokens (limited times per day, check your account later)</div>
-    <button type="button" onClick="claimToken();">claim tokens</button>
+    <div>2. Claim token here (limited times per day, check your account later)</div>
+    <a href="https://testnet.nebulas.io/claim/">https://testnet.nebulas.io/claim/</a>
 </div>
 <br>
 <br>
