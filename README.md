@@ -25,7 +25,7 @@ Now we can check the newly created files in `/dist`
 
 Here you should see a bunch of js files. 
 
- * `neb.js`:Used in browser side. Including outside dependency.
+ * `neb.js`:Used in browser side. Only RPC interface supported.
  * `neb-light.js`:Used in Repl console. Not including outside dependency.
  * `nebulas.js`: Fully functional in the browser. Users can create an address, sign a transaction, and deploy/call a smart contract.
 
