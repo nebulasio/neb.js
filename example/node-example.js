@@ -37,10 +37,18 @@ tx.fromProto(data);
 console.log(tx.toString());
 console.log("address:"+tx.from.getAddressString());
 
+var tx = Transaction.fromProto(data);
+console.log(tx.toString());
+var pubkey = Transaction.recover(tx.hash, tx.sign);
+var formAddr = Account.fromPubKey(pubkey);
+console.log("recover address:", formAddr.getAddressString());
+if (formAddr.getAddressString() != tx.from.getAddressString()) {
+	throw new Error("transaction recover faild.");
+}
+
 var cryptoUtils = Nebulas.CryptoUtils;
 console.log("black：" + cryptoUtils.sha3("").toString("hex"));
 console.log("Hello, world：" + cryptoUtils.sha3("Hello, world").toString("hex"));
-
 
 console.log("=======test compatibility version3/version4=======");
 
