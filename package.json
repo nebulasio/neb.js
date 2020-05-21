@@ -1,6 +1,6 @@
 {
     "name": "nebulas",
-    "version": "0.5.6",
+    "version": "0.5.7",
     "copyright": "Copyright © 2017-2018 Nebulas.io",
     "description": "Nebulas JavaScript API",
     "main": "index.js",
@@ -36,7 +36,7 @@
         "bignumber.js": "^5.0.0",
         "bs58": "^4.0.1",
         "extend": "^3.0.1",
-        "jssha": "*",
+        "jssha": "^2.3.1",
         "keccak": "^1.0.2",
         "promise": "^8.0.1",
         "protobufjs": "^6.8.6",
