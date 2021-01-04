@@ -32,7 +32,7 @@
         "lib": "./lib"
     },
     "dependencies": {
-        "axios": "^0.18.0",
+        "axios": "^0.21.1",
         "bignumber.js": "^5.0.0",
         "bs58": "^4.0.1",
         "extend": "^3.0.1",
