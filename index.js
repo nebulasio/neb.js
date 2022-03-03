@@ -5,7 +5,6 @@ var Transaction = require('./lib/transaction');
 var Utils = require('./lib/utils/utils');
 var CryptoUtils = require('./lib/utils/crypto-utils');
 var Unit = require('./lib/utils/unit');
-var NVM = require('./lib/nvm/nvm');
 
 // dont override global variable
 if (typeof window !== 'undefined' && typeof window.Neb === 'undefined') {
@@ -19,6 +18,5 @@ module.exports = {
     Transaction: Transaction,
     Utils: Utils,
     CryptoUtils: CryptoUtils,
-    Unit: Unit,
-    NVM: NVM
+    Unit: Unit
 };
