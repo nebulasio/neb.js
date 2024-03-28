@@ -62,7 +62,7 @@
         "chai": "^3.0.0",
         "coveralls": "^2.11.2",
         "del": ">=2.0.2",
-        "exorcist": "^0.4.0",
+        "exorcist": "^2.0.0",
         "gulp-jsdoc3": "^1.0.1",
         "gulp-jshint": ">=1.5.0",
         "gulp-notify": "^3.0.0",
